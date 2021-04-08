@@ -1,0 +1,428 @@
+[
+  {
+    "Your_bussness": {
+      "Yellow": [
+        {
+          "index": 0,
+          "name": "Marguerite Donovan",
+          "about": "Dolore anim cupidatat nisi quis aliquip excepteur exercitation consectetur. Officia fugiat dolor labore et magna ut cillum exercitation cillum. Ex occaecat aute eiusmod ex anim laborum sunt proident deserunt pariatur elit do culpa exercitation.\r\n",
+          "email": "margueritedonovan@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Roach Joseph",
+          "about": "Ullamco magna pariatur laborum non laboris cupidatat exercitation voluptate veniam exercitation aute voluptate sunt et. Sint laborum magna cillum id. Tempor minim amet irure esse et mollit ex consequat cillum id anim in officia velit. Qui elit in cillum aute et amet. Voluptate aute amet incididunt officia occaecat quis officia eiusmod aliquip in cupidatat duis aliqua. Enim sit est duis irure veniam est. Nulla enim dolore deserunt consectetur incididunt magna consequat tempor Lorem ullamco veniam voluptate sit.\r\n",
+          "email": "roachjoseph@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Conley Waller",
+          "about": "Do aliqua irure culpa do. Esse ipsum minim eiusmod adipisicing cupidatat est nostrud in pariatur minim labore nisi dolore. Sint magna incididunt do proident.\r\n",
+          "email": "conleywaller@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Brady Cleveland",
+          "about": "Ipsum velit enim duis Lorem tempor nisi. In commodo sint cillum ea minim sit sit incididunt. Mollit deserunt sit excepteur commodo occaecat do in ipsum. Officia ullamco voluptate officia ullamco aliquip amet qui ut nisi reprehenderit. Cillum pariatur consectetur proident est duis laborum id tempor eiusmod ea. Voluptate minim aliqua elit officia id in esse eu labore velit qui sit dolore. Velit elit est sit voluptate Lorem veniam minim.\r\n",
+          "email": "bradycleveland@corecom.com"
+        }
+      ],
+      "Blue": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ],
+      "Pink": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ],
+      "Orange": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ]
+    },
+    "Heigher_Education": {
+      "Yellow": [
+        {
+          "index": 0,
+          "name": "Marguerite Donovan",
+          "about": "Dolore anim cupidatat nisi quis aliquip excepteur exercitation consectetur. Officia fugiat dolor labore et magna ut cillum exercitation cillum. Ex occaecat aute eiusmod ex anim laborum sunt proident deserunt pariatur elit do culpa exercitation.\r\n",
+          "email": "margueritedonovan@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Roach Joseph",
+          "about": "Ullamco magna pariatur laborum non laboris cupidatat exercitation voluptate veniam exercitation aute voluptate sunt et. Sint laborum magna cillum id. Tempor minim amet irure esse et mollit ex consequat cillum id anim in officia velit. Qui elit in cillum aute et amet. Voluptate aute amet incididunt officia occaecat quis officia eiusmod aliquip in cupidatat duis aliqua. Enim sit est duis irure veniam est. Nulla enim dolore deserunt consectetur incididunt magna consequat tempor Lorem ullamco veniam voluptate sit.\r\n",
+          "email": "roachjoseph@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Conley Waller",
+          "about": "Do aliqua irure culpa do. Esse ipsum minim eiusmod adipisicing cupidatat est nostrud in pariatur minim labore nisi dolore. Sint magna incididunt do proident.\r\n",
+          "email": "conleywaller@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Brady Cleveland",
+          "about": "Ipsum velit enim duis Lorem tempor nisi. In commodo sint cillum ea minim sit sit incididunt. Mollit deserunt sit excepteur commodo occaecat do in ipsum. Officia ullamco voluptate officia ullamco aliquip amet qui ut nisi reprehenderit. Cillum pariatur consectetur proident est duis laborum id tempor eiusmod ea. Voluptate minim aliqua elit officia id in esse eu labore velit qui sit dolore. Velit elit est sit voluptate Lorem veniam minim.\r\n",
+          "email": "bradycleveland@corecom.com"
+        }
+      ],
+      "Blue": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ],
+      "Pink": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ],
+      "Orange": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ]
+    },
+    "MemberShip": {
+      "Yellow": [
+        {
+          "index": 0,
+          "name": "Marguerite Donovan",
+          "about": "Dolore anim cupidatat nisi quis aliquip excepteur exercitation consectetur. Officia fugiat dolor labore et magna ut cillum exercitation cillum. Ex occaecat aute eiusmod ex anim laborum sunt proident deserunt pariatur elit do culpa exercitation.\r\n",
+          "email": "margueritedonovan@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Roach Joseph",
+          "about": "Ullamco magna pariatur laborum non laboris cupidatat exercitation voluptate veniam exercitation aute voluptate sunt et. Sint laborum magna cillum id. Tempor minim amet irure esse et mollit ex consequat cillum id anim in officia velit. Qui elit in cillum aute et amet. Voluptate aute amet incididunt officia occaecat quis officia eiusmod aliquip in cupidatat duis aliqua. Enim sit est duis irure veniam est. Nulla enim dolore deserunt consectetur incididunt magna consequat tempor Lorem ullamco veniam voluptate sit.\r\n",
+          "email": "roachjoseph@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Conley Waller",
+          "about": "Do aliqua irure culpa do. Esse ipsum minim eiusmod adipisicing cupidatat est nostrud in pariatur minim labore nisi dolore. Sint magna incididunt do proident.\r\n",
+          "email": "conleywaller@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Brady Cleveland",
+          "about": "Ipsum velit enim duis Lorem tempor nisi. In commodo sint cillum ea minim sit sit incididunt. Mollit deserunt sit excepteur commodo occaecat do in ipsum. Officia ullamco voluptate officia ullamco aliquip amet qui ut nisi reprehenderit. Cillum pariatur consectetur proident est duis laborum id tempor eiusmod ea. Voluptate minim aliqua elit officia id in esse eu labore velit qui sit dolore. Velit elit est sit voluptate Lorem veniam minim.\r\n",
+          "email": "bradycleveland@corecom.com"
+        }
+      ],
+      "Blue": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ],
+      "Pink": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ],
+      "Orange": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ]
+    },
+    "Not_for_profit": {
+      "Yellow": [
+        {
+          "index": 0,
+          "name": "Marguerite Donovan",
+          "about": "Dolore anim cupidatat nisi quis aliquip excepteur exercitation consectetur. Officia fugiat dolor labore et magna ut cillum exercitation cillum. Ex occaecat aute eiusmod ex anim laborum sunt proident deserunt pariatur elit do culpa exercitation.\r\n",
+          "email": "margueritedonovan@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Roach Joseph",
+          "about": "Ullamco magna pariatur laborum non laboris cupidatat exercitation voluptate veniam exercitation aute voluptate sunt et. Sint laborum magna cillum id. Tempor minim amet irure esse et mollit ex consequat cillum id anim in officia velit. Qui elit in cillum aute et amet. Voluptate aute amet incididunt officia occaecat quis officia eiusmod aliquip in cupidatat duis aliqua. Enim sit est duis irure veniam est. Nulla enim dolore deserunt consectetur incididunt magna consequat tempor Lorem ullamco veniam voluptate sit.\r\n",
+          "email": "roachjoseph@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Conley Waller",
+          "about": "Do aliqua irure culpa do. Esse ipsum minim eiusmod adipisicing cupidatat est nostrud in pariatur minim labore nisi dolore. Sint magna incididunt do proident.\r\n",
+          "email": "conleywaller@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Brady Cleveland",
+          "about": "Ipsum velit enim duis Lorem tempor nisi. In commodo sint cillum ea minim sit sit incididunt. Mollit deserunt sit excepteur commodo occaecat do in ipsum. Officia ullamco voluptate officia ullamco aliquip amet qui ut nisi reprehenderit. Cillum pariatur consectetur proident est duis laborum id tempor eiusmod ea. Voluptate minim aliqua elit officia id in esse eu labore velit qui sit dolore. Velit elit est sit voluptate Lorem veniam minim.\r\n",
+          "email": "bradycleveland@corecom.com"
+        }
+      ],
+      "Blue": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ],
+      "Pink": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ],
+      "Orange": [
+        {
+          "index": 0,
+          "name": "Byers Long",
+          "about": "Consectetur aliqua voluptate excepteur voluptate reprehenderit irure dolore do amet mollit dolore deserunt fugiat aliquip. Sit labore labore consectetur proident dolor dolor excepteur irure nisi proident minim nostrud eiusmod anim. Occaecat occaecat anim eiusmod voluptate laboris et magna consectetur. Incididunt mollit nostrud ipsum laborum eu culpa id pariatur anim aute. Sint nisi ut et dolore minim eu culpa.\r\n",
+          "email": "byerslong@corecom.com"
+        },
+        {
+          "index": 1,
+          "name": "Dunn Torres",
+          "about": "Aliqua aliquip sit aliqua laborum ipsum aliquip et excepteur. Cillum ea dolore occaecat anim excepteur reprehenderit. Ut anim dolor voluptate eiusmod do nisi reprehenderit enim. Quis consectetur laborum Lorem sit amet mollit mollit quis in sit occaecat. Excepteur dolore amet fugiat ex ex laborum. Sint cupidatat reprehenderit veniam ea laboris id officia laboris incididunt.\r\n",
+          "email": "dunntorres@corecom.com"
+        },
+        {
+          "index": 2,
+          "name": "Stevens Bentley",
+          "about": "Enim sit aliquip qui minim incididunt laborum nulla ipsum consequat reprehenderit culpa ullamco. Magna ullamco adipisicing sit Lorem et. Laboris laborum id do sit non exercitation magna anim elit incididunt laborum voluptate enim magna. Nostrud velit reprehenderit velit nulla veniam ex reprehenderit officia velit sit deserunt pariatur voluptate.\r\n",
+          "email": "stevensbentley@corecom.com"
+        },
+        {
+          "index": 3,
+          "name": "Huff Clay",
+          "about": "Incididunt deserunt veniam ut minim consectetur fugiat excepteur sit adipisicing cillum velit. Incididunt incididunt laboris quis cupidatat aute. In non ex amet nostrud veniam duis Lorem commodo. Excepteur id commodo ut magna eiusmod consequat exercitation nulla mollit labore. Excepteur culpa nisi enim consequat nostrud dolor duis dolore proident nostrud ea labore laboris nisi.\r\n",
+          "email": "huffclay@corecom.com"
+        }
+      ]
+    }
+  }
+]
