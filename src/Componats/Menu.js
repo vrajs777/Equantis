@@ -1,125 +1,93 @@
-import React, { useState } from "react";
-import { AiOutlineMenu, AiFillCloseCircle } from "react-icons/ai";
+import React, { useState, useEffect } from "react";
 import "./menu.css";
+import logo from "../assets/img/nav-logo.svg";
 export default function Menu() {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(true);
+  const [subMenuOpen, setsubMEnuOpen] = useState(null);
+  const [menuData, setMenuData] = useState();
+  useEffect(() => {
+    fetch("https://staging.project-progress.net/projects/equantiis/wp-json/industry-expertise/lp")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setMenuData(data.header);
+        console.log(menuData);
+      });
+  }, []);
   const OpenMenu = () => {
-    console.log("menu", !isOpen);
     setOpen(!isOpen);
+    isOpen == false ? setsubMEnuOpen(null) : null;
   };
   const CloseMenu = () => {
     setOpen(false);
-    console.log("menu", isOpen);
   };
+  const submenuToggle = (i) => {
+    setsubMEnuOpen(i);
+  };
+
   return (
-    <div>
-      {/* <div className='db'>
-          <h2>Menu</h2>
-          <AiOutlineMenu onClick={OpenMenu} />
-          <div className={`main-menu ${isOpen ? "db" : "dn"}`}>
-            <AiFillCloseCircle onClick={CloseMenu} />
-          
-          </div>
-        </div> */}
-      <header id='masthead' class='site-header'>
-        <div class='container'>
-          <div class='row'>
-            <div class='logo-blk col-md-6'>
+    <>
+      <header id='masthead' className='site-header'>
+        <div className='container'>
+          <div className='row'>
+            <div className='logo-blk col-md-6'>
               <figure>
-                <img src='assets/images/logo.svg' alt='logo' />
+                <img src={logo} alt='logo' />
               </figure>
             </div>
-            <div class='fixed-menu-blk'>
-              <div class='ask-btn'>
+            <div className='fixed-menu-blk'>
+              <div className='ask-btn'>
                 <a href='#'>Ask us anything</a>
               </div>
-              <div class='hamburger'>
-                <div class='hamburger-box'>
-                  <span class='menu-line line-1'></span>
-                  <span class='menu-line line-2'></span>
-                  <span class='menu-line line-3'></span>
+              <div className={`hamburger ${isOpen ? "" : "is-active"}`} onClick={() => OpenMenu()}>
+                <div className='hamburger-box'>
+                  <div className='hamburger-inner'></div>
                 </div>
               </div>
             </div>
-            <div class='site-navigation'>
-              <div class='container'>
-                <div class='nav-logo'>
+            <div className={`site-navigation ${isOpen ? "" : "menu-opened"}`}>
+              <div className='container'>
+                <div className='nav-logo'>
                   <figure>
-                    <img src='assets/images/nav-logo.svg' />
+                    <img src={logo} />
                   </figure>
                 </div>
-                <div class='inner-navigation'>
-                  <div class='menu-main-menu-container'>
-                    <ul class='nav-menu'>
-                      <li class='menu-item'>
-                        <a href='#'>Challenges we solve</a>
-                      </li>
-
-                      <li class='menu-item menu-item-has-children'>
-                        <a href='#'>Industry expertise</a>
-                        <ul class='sub-menu'>
-                          <li class='menu-item'>
-                            <p>
-                              We understand your role is difficult. Finding the appropriate answers and translating
-                              those findings into useful actions solve your problems or challenges.
-                            </p>
-                          </li>
-                          <li class='menu-item'>
-                            <a href='#'>Your Business</a>
-                          </li>
-
-                          <li class='menu-item'>
-                            <a href='#'>Higher Education</a>
-                          </li>
-
-                          <li class='menu-item'>
-                            <a href='#'>Not for Profit</a>
-                          </li>
-
-                          <li class='menu-item'>
-                            <a href='#'>Memberships</a>
-                          </li>
-                        </ul>
-                      </li>
-
-                      <li class='menu-item menu-item-has-children'>
-                        <a href='#'>Why us?</a>
-                        <ul class='sub-menu'>
-                          <li class='menu-item'>
-                            <p>
-                              We understand your role is difficult. Finding the appropriate answers and translating
-                              those findings into useful actions solve your problems or challenges.
-                            </p>
-                          </li>
-                          <li class='menu-item'>
-                            <a href='#'>Your Business</a>
-                          </li>
-
-                          <li class='menu-item'>
-                            <a href='#'>Higher Education</a>
-                          </li>
-
-                          <li class='menu-item'>
-                            <a href='#'>Not for Profit</a>
-                          </li>
-
-                          <li class='menu-item'>
-                            <a href='#'>Memberships</a>
-                          </li>
-                        </ul>
-                      </li>
-
-                      <li class='menu-item'>
-                        <a href='#'>Success stories</a>
-                      </li>
-
-                      <li class='menu-item'>
-                        <a href='#'>Thinklab</a>
-                      </li>
-
-                      <li class='menu-item'>
-                        <a href='#'>Events</a>
-                      </li>
+                <div className='inner-navigation'>
+                  <div className='menu-main-menu-container'>
+                    <ul className='nav-menu'>
+                      {menuData ? (
+                        menuData.menu.map((menuItem, index) =>
+                          menuItem.children.length == 0 ? (
+                            <li className='menu-item' key={index}>
+                              <a href={menuItem.url}>{menuItem.title}</a>
+                            </li>
+                          ) : (
+                            <li
+                              className={`menu-item menu-item-has-children ${
+                                subMenuOpen === "firstSubMenu" ? "submenuOpened" : ""
+                              }`}>
+                              <a href={menuItem.url}>{menuItem.title}</a>
+                              <span class='submenuToggle' onClick={() => submenuToggle("firstSubMenu")}></span>
+                              <ul className='sub-menu'>
+                                {menuItem.children.map((submenuItem, index) => {
+                                  if (!index == 0) {
+                                    return (
+                                      <li className='menu-item' key={index}>
+                                        <a href={submenuItem.url}>{submenuItem.title}</a>
+                                      </li>
+                                    );
+                                  } else {
+                                    return <li dangerouslySetInnerHTML={{ __html: submenuItem.title }}></li>;
+                                  }
+                                })}
+                              </ul>
+                            </li>
+                          )
+                        )
+                      ) : (
+                        <h2>Loading</h2>
+                      )}
                     </ul>
                   </div>
                 </div>
@@ -128,6 +96,6 @@ export default function Menu() {
           </div>
         </div>
       </header>
-    </div>
+    </>
   );
 }
