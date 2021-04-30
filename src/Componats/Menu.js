@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./menu.css";
+import "../styles.css";
 import logo from "../assets/img/nav-logo.svg";
+import { Link } from "react-router-dom";
 export default function Menu() {
   const [isOpen, setOpen] = useState(true);
   const [subMenuOpen, setsubMEnuOpen] = useState(null);
@@ -12,7 +13,6 @@ export default function Menu() {
       })
       .then((data) => {
         setMenuData(data.header);
-        console.log(menuData);
       });
   }, []);
   const OpenMenu = () => {
@@ -68,13 +68,14 @@ export default function Menu() {
                                 subMenuOpen === "firstSubMenu" ? "submenuOpened" : ""
                               }`}>
                               <a href={menuItem.url}>{menuItem.title}</a>
-                              <span class='submenuToggle' onClick={() => submenuToggle("firstSubMenu")}></span>
+
+                              <span className='submenuToggle' onClick={() => submenuToggle("firstSubMenu")}></span>
                               <ul className='sub-menu'>
                                 {menuItem.children.map((submenuItem, index) => {
                                   if (!index == 0) {
                                     return (
                                       <li className='menu-item' key={index}>
-                                        <a href={submenuItem.url}>{submenuItem.title}</a>
+                                        <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
                                       </li>
                                     );
                                   } else {

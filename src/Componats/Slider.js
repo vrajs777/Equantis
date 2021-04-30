@@ -17,8 +17,10 @@ import NiicoBg from "../assets/img/Niico-bg.svg";
 import GetTouchBg from "../assets/img/get-line-img.svg";
 import GreenBannerCircle from "../assets/img/GreenBannerCircle.svg";
 import exploredottimg from "../assets/img/explore-dott-img.svg";
-import { createLogicalOr } from "typescript";
-export default function SliderMain(props) {
+import Loader from "./Loader";
+import { withRouter } from "react-router";
+
+const SliderMain = (props) => {
   const [nav1, setNav1] = useState(null);
   const [index, setIndex] = useState(null);
   const [nav2, setNav2] = useState(null);
@@ -35,6 +37,8 @@ export default function SliderMain(props) {
   const slider3 = useRef(null);
   const slider4 = useRef(null);
   const slider5 = useRef(null);
+  const myRef = useRef(null);
+  const executeScroll = () => window.scrollTo({ behavior: "smooth", top: myRef.current.offsetTop });
   useEffect(() => {
     setOption(props.location.hash.split("#")[1]);
     setNav1(slider1.current);
@@ -53,7 +57,7 @@ export default function SliderMain(props) {
         setLoading(true);
         let newData = data.body.content_dynamic;
         let staticDatas = data.body.content_static;
-        //console.log(newData, staticDatas);
+
         setNewData(newData);
         setBanner([]);
         Object.keys(newData).forEach(function (key, index) {
@@ -63,12 +67,11 @@ export default function SliderMain(props) {
             // console.log(value);
             value.map((data) => setBanner((oldFiles) => [...oldFiles, data]));
             setLoading(false);
-            return false;
           }
         });
         setstaticData(staticDatas);
       });
-  }, [option]);
+  }, [option, props.location.hash.split("#")[1]]);
 
   const settings = {
     loop: true,
@@ -79,20 +82,19 @@ export default function SliderMain(props) {
     autoplaySpeed: 10000,
     beforeChange: function (currentSlide, nextSlide) {
       // console.log("before change", currentSlide, nextSlide);
-      setIndex(nextSlide);
     },
     afterChange: function (currentSlide) {
       // console.log("after change", currentSlide);
+      setIndex(currentSlide);
     },
   };
 
   return (
-    <div>
-      {/*= <div style={{ opacity: laoding ? 1 : 0 }}>loading....</div> */}
-
+    <>
+      {laoding ? <Loader /> : null}
       <div style={{ opacity: laoding ? 0 : 1 }}>
         <Slider asNavFor={nav2} ref={slider1} {...settings} className='banner'>
-          {banner.length === 4 ? (
+          {banner ? (
             banner.map((item, el) =>
               index === el ? (
                 <div key={el} style={{ background: `${item.bg_color}` }}>
@@ -108,26 +110,30 @@ export default function SliderMain(props) {
                           <div className='banner-content col-md-7'>
                             <div className='inner-content'>
                               <div className='banner-title'>
-                                <h2>
-                                  Helping Higher Education
-                                  <span>{item.heading}</span>
-                                </h2>
+                                {item.banner.heading && item.banner.white_heading ? (
+                                  <h2>
+                                    <span className='trans-bg'>{item.banner.heading}</span>
+                                    <span className='bg-color'>{item.banner.white_heading}</span>
+                                  </h2>
+                                ) : null}
                               </div>
                             </div>
                           </div>
                           <div className='banner-img col-md-5'>
                             <figure>
-                              <img src={item.banner.image} alt='Banner Image' />
+                              {item.banner.image ? <img src={item.banner.image} alt='Banner Image' /> : null}
                             </figure>
                           </div>
                         </div>
                         <div className='explore-btn arrow-btn'>
-                          <a href='#'>
-                            <span className='arrow'>
-                              <i className='far fa-arrow-down'></i>
-                            </span>
-                            {item.banner.button.title}
-                          </a>
+                          {item.banner.button.title ? (
+                            <a href='javascript:void(0)' onClick={executeScroll}>
+                              <span className='arrow'>
+                                <i className='far fa-arrow-down'></i>
+                              </span>
+                              {item.banner.button.title}
+                            </a>
+                          ) : null}
                         </div>
                         <div className='pattern-img desktop'>
                           <figure>
@@ -146,18 +152,20 @@ export default function SliderMain(props) {
             <h2>Loading...</h2>
           )}
         </Slider>
-        {console.log(banner)}
-        <div className='title-content-section text-center'>
-          <div className='container'>
-            <div className='inner-section'>
-              <h4>Asking the right questions</h4>
-              <p>
-                We understand your role is difficult. Finding the appropriate answers and translating those findings
-                into useful actions solve your problems or challenges.
-              </p>
+
+        {staticData ? (
+          <div className='title-content-section text-center' ref={myRef}>
+            <div className='container'>
+              <div className='inner-section'>
+                {staticData.ask_us.title ? <h4>{staticData.ask_us.title}</h4> : null}
+                {staticData.ask_us.description ? <p>{staticData.ask_us.description}</p> : null}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <h2>Loading...</h2>
+        )}
+        {console.log(banner, "banner asrray data")}
         <Slider
           infinite={false}
           arrows={false}
@@ -168,7 +176,7 @@ export default function SliderMain(props) {
           draggable={false}
           // focusOnSelect={true}
           className='firstsection'>
-          {banner.length === 4 ? (
+          {banner ? (
             banner.map((item, el) => (
               <div key={el}>
                 <div className='challenges-section'>
@@ -178,21 +186,21 @@ export default function SliderMain(props) {
                         {item.ask.challanges.map((item) => (
                           <div className='single-challenge-blog col-md-6'>
                             <div className='blog-img' style={{ background: "#F0F1F3" }}>
-                              <figure>
-                                <img src={item.image} alt='' />
-                              </figure>
+                              <figure>{item.image ? <img src={item.image} alt='' /> : null}</figure>
                             </div>
                             <div className='blog-content'>
                               <div className='inner-blog-content'>
                                 <span className='challenge-tag'>{item.small_heading}</span>
-                                <h3>{item.heading}</h3>
+                                {item.heading ? <h3>{item.heading}</h3> : null}
                                 <div className='arrow-btn'>
-                                  <a href={item.link.url}>
-                                    {item.link.title}
-                                    <span className='arrow'>
-                                      <i className='far fa-arrow-right'></i>
-                                    </span>
-                                  </a>
+                                  {item.link.url ? (
+                                    <a href={item.link.url}>
+                                      {item.link.title}
+                                      <span className='arrow'>
+                                        <i className='far fa-arrow-right'></i>
+                                      </span>
+                                    </a>
+                                  ) : null}
                                 </div>
                               </div>
                             </div>
@@ -202,11 +210,13 @@ export default function SliderMain(props) {
                     </div>
                     <div className='know-more-section'>
                       <div className='inner-blk text-center'>
-                        <h5> {item.ask.button_text}</h5>
+                        {item.ask.button_text ? <h5> {item.ask.button_text}</h5> : null}
                         <div className='btn-blk yellow-bg'>
-                          <a href='#' className='cta-btn'>
-                            {item.ask.button.title}
-                          </a>
+                          {item.ask.button.title ? (
+                            <a href='#' className='cta-btn'>
+                              {item.ask.button.title}
+                            </a>
+                          ) : null}
                         </div>
                       </div>
                     </div>
@@ -234,114 +244,129 @@ export default function SliderMain(props) {
           draggable={false}
           // focusOnSelect={true}
         >
-          {banner.length === 4 ? (
-            banner.map((item, index) => (
-              <div key={index}>
-                <div className='circle-story-section'>
-                  <div className='circle-blk-section'>
-                    <div className='inner-circle-blk'>
-                      <div className='container'>
-                        <div className='inner-blk'>
-                          <div className='row'>
-                            <div className='content-blk col-md-6'>
-                              <div className='inner-content-blk'>
-                                <span className='education-row'>Higher Education Success Story</span>
+          {banner ? (
+            banner.map((item, index) => {
+              const sucessStoryItem = (item.sucess_story && !!item.sucess_story.length && item.sucess_story[0]) || null;
+              const sucessStoryItem2 =
+                (item.sucess_story && !!item.sucess_story.length && item.sucess_story[1]) || null;
+              const sucessStoryItem3 =
+                (item.sucess_story && !!item.sucess_story.length && item.sucess_story[2]) || null;
+              return (
+                <React.Fragment key={index}>
+                  <div key={index}>
+                    <div className='circle-story-section'>
+                      <div className='circle-blk-section'>
+                        <div className='inner-circle-blk'>
+                          <div className='container'>
+                            <div className='inner-blk'>
+                              <div className='row'>
+                                <div className='content-blk col-md-6'>
+                                  <div className='inner-content-blk'>
+                                    <span className='education-row'>Higher Education Success Story</span>
 
-                                <h3>{item.sucess_story[0].title}</h3>
-                                <p>{item.sucess_story[0].description}</p>
-                                <div className='arrow-btn'>
-                                  <a href={item.sucess_story[0].link}>
-                                    Discover more
-                                    <span className='arrow'>
-                                      <i className='far fa-arrow-right'></i>
-                                    </span>
-                                  </a>
+                                    {sucessStoryItem.title ? <h3>{sucessStoryItem.title}</h3> : null}
+                                    {sucessStoryItem.description ? <p>{sucessStoryItem.description}</p> : null}
+                                    <div className='arrow-btn'>
+                                      {sucessStoryItem.link ? (
+                                        <a href={sucessStoryItem.link}>
+                                          Discover more
+                                          <span className='arrow'>
+                                            <i className='far fa-arrow-right'></i>
+                                          </span>
+                                        </a>
+                                      ) : null}
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
-                            <div className='img-blk col-md-6'>
-                              <div className='inner-img-blk'>
-                                <div className='main-img'>
-                                  <figure>
-                                    <img src={storyimg} alt='Story Image' />
-                                  </figure>
-                                </div>
-                                <div className='logo-img'>
-                                  <figure>
-                                    <img src={ManchesterLogo} alt='manchester' />
-                                  </figure>
+                                <div className='img-blk col-md-6'>
+                                  <div className='inner-img-blk'>
+                                    <div className='main-img'>
+                                      <figure>
+                                        <img src={storyimg} alt='Story Image' />
+                                      </figure>
+                                    </div>
+                                    <div className='logo-img'>
+                                      <figure>
+                                        <img src={ManchesterLogo} alt='manchester' />
+                                      </figure>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className='story-blk'>
-                    <div className='container'>
-                      <div className='inner-story-blk'>
-                        <div className='row'>
-                          <div className='single-story col-md-6'>
-                            <div className='inner-single-story'>
-                              <div className='content-blk'>
-                                <div className='inner-content-blk'>
-                                  <span className='education-row'>Higher Education Success Story</span>
-                                  <h4>{item.sucess_story[1].title}</h4>
-                                  <div className='arrow-btn'>
-                                    <a href={item.sucess_story[1].link}>
-                                      Discover more
-                                      <span className='arrow'>
-                                        <i className='far fa-arrow-right'></i>
-                                      </span>
-                                    </a>
+                      <div className='story-blk'>
+                        <div className='container'>
+                          <div className='inner-story-blk'>
+                            <div className='row'>
+                              <div className='single-story col-md-6'>
+                                <div className='inner-single-story'>
+                                  <div className='content-blk'>
+                                    <div className='inner-content-blk'>
+                                      <span className='education-row'>Higher Education Success Story</span>
+                                      {item.sucess_story[1].title ? <h4>{item.sucess_story[1].title}</h4> : null}
+                                      <div className='arrow-btn'>
+                                        {item.sucess_story[1].link ? (
+                                          <a href={item.sucess_story[1].link}>
+                                            Discover more
+                                            <span className='arrow'>
+                                              <i className='far fa-arrow-right'></i>
+                                            </span>
+                                          </a>
+                                        ) : null}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className='logo-blk'>
+                                    <figure>
+                                      <img src={ManchesterLogo} alt='manchester' />
+                                    </figure>
                                   </div>
                                 </div>
                               </div>
-                              <div className='logo-blk'>
-                                <figure>
-                                  <img src={ManchesterLogo} alt='manchester' />
-                                </figure>
-                              </div>
-                            </div>
-                          </div>
 
-                          <div className='single-story col-md-6'>
-                            <div className='inner-single-story'>
-                              <div className='content-blk'>
-                                <div className='inner-content-blk'>
-                                  <span className='education-row'>Higher Education Success Story</span>
-                                  <h4>{item.sucess_story[2].title}</h4>
-                                  <div className='arrow-btn'>
-                                    <a href={item.sucess_story[2].link}>
-                                      Discover more
-                                      <span className='arrow'>
-                                        <i className='far fa-arrow-right'></i>
-                                      </span>
-                                    </a>
+                              <div className='single-story col-md-6'>
+                                <div className='inner-single-story'>
+                                  <div className='content-blk'>
+                                    <div className='inner-content-blk'>
+                                      <span className='education-row'>Higher Education Success Story</span>
+                                      {item.sucess_story[2].title ? <h4>{item.sucess_story[2].title}</h4> : null}
+                                      {item.sucess_story[2].link ? (
+                                        <div className='arrow-btn'>
+                                          <a href={item.sucess_story[2].link ? item.sucess_story[2].link : "#"}>
+                                            Discover more
+                                            <span className='arrow'>
+                                              <i className='far fa-arrow-right'></i>
+                                            </span>
+                                          </a>
+                                        </div>
+                                      ) : null}
+                                    </div>
+                                  </div>
+                                  <div className='logo-blk'>
+                                    <figure>
+                                      <img src={EastLondon} alt='manchester' />
+                                    </figure>
                                   </div>
                                 </div>
-                              </div>
-                              <div className='logo-blk'>
-                                <figure>
-                                  <img src={EastLondon} alt='manchester' />
-                                </figure>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+
+                      <div className='pattern-img desktop'>
+                        <figure>
+                          <Pattern2 />
+                        </figure>
+                      </div>
                     </div>
                   </div>
-
-                  <div className='pattern-img desktop'>
-                    <figure>
-                      <Pattern2 />
-                    </figure>
-                  </div>
-                </div>
-              </div>
-            ))
+                </React.Fragment>
+              );
+            })
           ) : (
             <h3>Loading....</h3>
           )}
@@ -357,7 +382,7 @@ export default function SliderMain(props) {
           draggable={false}
           // focusOnSelect={true}
         >
-          {banner.length === 4 ? (
+          {banner ? (
             banner.map((item, index) => (
               <div key={index}>
                 <div className='premium-product-section'>
@@ -367,20 +392,18 @@ export default function SliderMain(props) {
                         <div className='row'>
                           <div className='content-blk col-md-6'>
                             <div className='inner-content-blk'>
-                              <span>{item.cta.small_heading}</span>
-                              <h2>{item.cta.heading}</h2>
+                              {item.cta.small_heading ? <span>{item.cta.small_heading}</span> : null}
+                              {item.cta.heading ? <h2>{item.cta.heading}</h2> : null}
                               <div className='btn-blk'>
                                 <a href={item.cta.button.url} className='cta-btn'>
-                                  {item.cta.button.title}
+                                  {item.cta.button.title ? item.cta.button.title : null}
                                 </a>
                               </div>
                             </div>
                           </div>
                           <div className='img-blk col-md-6'>
                             <div className='inner-img-blk' style={{ background: `url(${NiicoBg})` }}>
-                              <figure>
-                                <img src={item.cta.image} alt='Niico' />
-                              </figure>
+                              <figure>{item.cta.image ? <img src={item.cta.image} alt='Niico' /> : null}</figure>
                             </div>
                           </div>
                         </div>
@@ -410,7 +433,7 @@ export default function SliderMain(props) {
           draggable={false}
           // focusOnSelect={true}
         >
-          {banner.length === 4 ? (
+          {banner ? (
             banner.map((item, index) => (
               <div>
                 <div className='thinklab-blog'>
@@ -429,9 +452,7 @@ export default function SliderMain(props) {
                           <div className='inner-single-blog'>
                             <div className='blog-img'>
                               <div className='inner-blog-img'>
-                                <figure>
-                                  <img src={thinklab.image} alt='Blog Image' />
-                                </figure>
+                                <figure>{thinklab.image ? <img src={thinklab.image} alt='Blog Image' /> : null}</figure>
                                 <span className='blog-cat'>Thought Piece</span>
                               </div>
                             </div>
@@ -439,9 +460,11 @@ export default function SliderMain(props) {
                             <div className='blog-content'>
                               <div className='inner-blog-content'>
                                 <h4>{thinklab.title}</h4>
-                                <p>{thinklab.description}</p>
+                                {thinklab.description ? <p>{thinklab.description}</p> : null}
 
-                                <div dangerouslySetInnerHTML={{ __html: thinklab.author_detail }}></div>
+                                {thinklab.author_detail ? (
+                                  <div dangerouslySetInnerHTML={{ __html: thinklab.author_detail }}></div>
+                                ) : null}
 
                                 <div className='arrow-btn'>
                                   <a href={thinklab.link}>
@@ -460,7 +483,7 @@ export default function SliderMain(props) {
 
                     <div className='more-thinkable btn-blk yellow-bg text-center'>
                       <a href={item.button.url} className='cta-btn '>
-                        {item.button.title}
+                        {item.button.title ? item.button.title : null}
                       </a>
                     </div>
                   </div>
@@ -489,9 +512,7 @@ export default function SliderMain(props) {
                       {staticData.high_profile.profiles ? (
                         staticData.high_profile.profiles.map((img) => (
                           <div className='single-logo'>
-                            <figure>
-                              <img src={img.profile_image} />
-                            </figure>
+                            <figure>{img.profile_image ? <img src={img.profile_image} /> : null}</figure>
                           </div>
                         ))
                       ) : (
@@ -541,7 +562,7 @@ export default function SliderMain(props) {
                   <div className='img-blk col-md-4'>
                     <div className='inner-img-blk'>
                       <figure>
-                        <img src={staticData.call_to_action.image ? staticData.call_to_action.image : ""} alt='' />
+                        <img src={staticData.call_to_action.image ? staticData.call_to_action.image : null} alt='' />
                       </figure>
                     </div>
                   </div>
@@ -553,6 +574,7 @@ export default function SliderMain(props) {
           <h3>Loading....</h3>
         )}
       </div>
-    </div>
+    </>
   );
-}
+};
+export default withRouter(SliderMain);
