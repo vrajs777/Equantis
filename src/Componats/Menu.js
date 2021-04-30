@@ -20,7 +20,7 @@ export default function Menu() {
     isOpen == false ? setsubMEnuOpen(null) : null;
   };
   const CloseMenu = () => {
-    setOpen(false);
+    setOpen(!isOpen);
   };
   const submenuToggle = (i) => {
     setsubMEnuOpen(i);
@@ -66,7 +66,8 @@ export default function Menu() {
                             <li
                               className={`menu-item menu-item-has-children ${
                                 subMenuOpen === "firstSubMenu" ? "submenuOpened" : ""
-                              }`}>
+                              }`}
+                              key={index}>
                               <a href={menuItem.url}>{menuItem.title}</a>
 
                               <span className='submenuToggle' onClick={() => submenuToggle("firstSubMenu")}></span>
@@ -74,7 +75,7 @@ export default function Menu() {
                                 {menuItem.children.map((submenuItem, index) => {
                                   if (!index == 0) {
                                     return (
-                                      <li className='menu-item' key={index}>
+                                      <li className='menu-item' key={index} onClick={() => CloseMenu()}>
                                         <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
                                       </li>
                                     );
