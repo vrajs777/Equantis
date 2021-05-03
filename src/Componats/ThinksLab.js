@@ -13,8 +13,8 @@ export default function ThinksLab({ item }) {
           </div>
           <h2>Our latest Thinklab Higher Education insight…</h2>
         </div>
-        {item.thinklabs.map((thinklab) => (
-          <div className='blog-blk'>
+        {item.thinklabs.map((thinklab, index) => (
+          <div className='blog-blk' key={index + "ThinksLab"}>
             <div className='single-blog'>
               <div className='inner-single-blog'>
                 <div className='blog-img'>

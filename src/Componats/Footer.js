@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 export default function Footer() {
   const [footer, setFooter] = useState();
   useEffect(() => {
@@ -18,7 +17,9 @@ export default function Footer() {
         <div className='container'>
           <div className='footer-logo-blk'>
             <figure>
-              <img src={footer.logo ? footer.logo : null} />
+              <a href={footer.logo_url}>
+                <img src={footer.logo ? footer.logo : null} />
+              </a>
             </figure>
           </div>
           <div className='bottom-footer'>

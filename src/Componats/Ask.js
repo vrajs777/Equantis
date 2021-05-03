@@ -6,29 +6,34 @@ export default function Ask({ item }) {
       <div className='container'>
         <div className='challenge-blocks'>
           <div className='row'>
-            {item.challanges.map((item) => (
-              <div className='single-challenge-blog col-md-6'>
-                <div className='blog-img' style={{ background: "#F0F1F3" }}>
-                  <figure>{item.image ? <img src={item.image} alt='' /> : null}</figure>
-                </div>
-                <div className='blog-content'>
-                  <div className='inner-blog-content'>
-                    <span className='challenge-tag'>{item.small_heading}</span>
-                    {item.heading ? <h3>{item.heading}</h3> : null}
-                    <div className='arrow-btn'>
-                      {item.link.url ? (
-                        <a href={item.link.url}>
-                          {item.link.title}
-                          <span className='arrow'>
-                            <i className='far fa-arrow-right'></i>
-                          </span>
-                        </a>
-                      ) : null}
+            {item.challanges &&
+              item.challanges.map((item, index) => (
+                <div className='single-challenge-blog col-md-6' key={index + "challanges"}>
+                  <div className='blog-img' style={{ background: "#F0F1F3" }}>
+                    {item.image ? (
+                      <figure>
+                        <img src={item.image} alt='' />
+                      </figure>
+                    ) : null}
+                  </div>
+                  <div className='blog-content'>
+                    <div className='inner-blog-content'>
+                      <span className='challenge-tag'>{item.small_heading}</span>
+                      {item.heading ? <h3>{item.heading}</h3> : null}
+                      <div className='arrow-btn'>
+                        {item.link.url ? (
+                          <a href={item.link.url}>
+                            {item.link.title}
+                            <span className='arrow'>
+                              <i className='far fa-arrow-right'></i>
+                            </span>
+                          </a>
+                        ) : null}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
         <div className='know-more-section'>

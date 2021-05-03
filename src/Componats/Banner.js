@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles.css";
 import GreenBannerCircle from "../assets/img/GreenBannerCircle.svg";
 import { ReactComponent as Pattern1 } from "../assets/img/pattern1.svg";
-
-export default function Banner({ item, myRef }) {
+export default function Banner({ item, myRef, changeSliders, currentDotIndex, dots }) {
   const executeScroll = () => window.scrollTo({ behavior: "smooth", top: myRef.current.offsetTop });
   return (
     <div style={{ background: `${item.bg_color}` }}>
@@ -26,6 +25,20 @@ export default function Banner({ item, myRef }) {
                       </h2>
                     ) : null}
                   </div>
+                  <ul className='slick-dots'>
+                    {dots &&
+                      !!dots.length &&
+                      dots.map((obj, dotIndex) => {
+                        return (
+                          <li
+                            key={dotIndex}
+                            className={currentDotIndex === dotIndex ? `slick-active` : ``}
+                            onClick={() => changeSliders(dotIndex + 1)}>
+                            <button>{dotIndex + 1}</button>
+                          </li>
+                        );
+                      })}
+                  </ul>
                 </div>
               </div>
               <div className='banner-img col-md-5'>

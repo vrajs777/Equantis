@@ -11,103 +11,115 @@ import Ask from "./Ask";
 import Sucess_story from "./Sucess_story";
 import Cta_button from "./Cta_button";
 import ThinksLab from "./ThinksLab";
-import { IndexKind } from "typescript";
+
 import GetInTOuch from "./GetInTOuch";
 import LogoWrap from "./LogoWrap";
+import FixedNav from "./FixedNav";
 const SliderMain = (props) => {
   const [nav1, setNav1] = useState(null);
-  const [index, setIndex] = useState(null);
+  const [ActiveDot, setActiveDot] = useState(null);
   const [nav2, setNav2] = useState(null);
   const [nav3, setNav3] = useState(null);
   const [nav4, setNav4] = useState(null);
   const [nav5, setNav5] = useState(null);
+  const [stickyData, setStickyData] = useState(null);
   const [laoding, setLoading] = useState(true);
   const [newdata, setNewData] = useState();
   const [staticData, setstaticData] = useState();
   const [banner, setBanner] = useState([]);
-  const [option, setOption] = useState();
+  const [Length, setLength] = useState();
   const slider1 = useRef(null);
   const slider2 = useRef(null);
   const slider3 = useRef(null);
   const slider4 = useRef(null);
   const slider5 = useRef(null);
   const myRef = useRef(null);
-
+  const ChangeSlider = (event, i) => {
+    slider1.current.slickGoTo(i);
+  };
   useEffect(() => {
-    setOption(props.location.hash.split("#")[1]);
+    setLoading(true);
+    setBanner([]);
+    setLength(0);
     setNav1(slider1.current);
     slider1.current.slickGoTo(0);
     setNav2(slider2.current);
     setNav3(slider3.current);
     setNav4(slider4.current);
     setNav5(slider5.current);
-    setIndex(0);
-    setLoading(true);
+    window.scrollTo({ behavior: "smooth", top: 0 });
     fetch("https://staging.project-progress.net/projects/equantiis/wp-json/industry-expertise/lp")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setLoading(true);
         let newData = data.body.content_dynamic;
         let staticDatas = data.body.content_static;
-        console.log(newData, staticDatas);
+        console.log(newData);
         setNewData(newData);
-        setBanner([]);
         Object.keys(newData).forEach(function (key, index) {
-          //  console.log(data, key);
-          if (key == option) {
+          if (key == props.location.hash.split("#")[1]) {
             var value = newData[key];
-            // console.log(value);
-            value.map((data) => setBanner((oldFiles) => [...oldFiles, data]));
+            console.log(value);
+            for (const k in value) {
+              if (k !== "sticky") {
+                setBanner((oldFiles) => [...oldFiles, value[k]]);
+              } else {
+                setStickyData(value["sticky"]);
+              }
+            }
           }
         });
         setstaticData(staticDatas);
+      })
+      .then((isload) => {
+        setLength(banner.length);
         setTimeout(() => {
           setLoading(false);
         }, 1000);
       });
-  }, [option, props.location.hash.split("#")[1]]);
+  }, [props.location.hash.split("#")[1]]);
 
   const settings = {
     loop: true,
     infinite: false,
     autoplay: true,
-    dots: true,
+    dots: false,
     arrows: false,
-    lazyLoad: true,
+    lazyLoad: false,
     adaptiveHeight: true,
     autoplaySpeed: 30000,
     initialSlide: 0,
     beforeChange: function (currentSlide, nextSlide) {
-      // console.log("before change", currentSlide, nextSlide);
+      setActiveDot(nextSlide);
     },
     afterChange: function (currentSlide) {
-      // console.log("after change", currentSlide);
-      setIndex(currentSlide);
-    },
-    onInit: function () {
-      console.log("init");
+      // setIndex(currentSlide);
     },
   };
 
   return (
     <>
-      {laoding ? <Loader /> : null}
-      <div style={{ opacity: laoding ? 0 : 1 }}>
+      {laoding && banner && banner.length === 0 && <Loader />}
+      <div style={{ opacity: laoding && banner && banner.length === 0 ? 0 : 1 }}>
         <Slider asNavFor={nav2} ref={slider1} {...settings} className='banner'>
           {banner && banner.length > 0 ? (
             banner.map((item, el) =>
               item ? (
-                <Banner item={item.banner} myRef={myRef} key={el} />
-              ) : (
-                {
-                  /* <h2>Data is Loading...</h2> */
-                }
-              )
+                <Banner
+                  changeSliders={(value) => {
+                    slider1.current.slickGoTo(value - 1);
+                  }}
+                  dots={banner}
+                  item={item.banner}
+                  currentDotIndex={ActiveDot}
+                  myRef={myRef}
+                  key={el + "banner"}
+                />
+              ) : null
             )
           ) : (
-            <h2>Loading...</h2>
+            <div></div>
           )}
         </Slider>
 
@@ -121,7 +133,7 @@ const SliderMain = (props) => {
             </div>
           </div>
         ) : (
-          <h2>Loading...</h2>
+          <div></div>
         )}
 
         <Slider
@@ -133,20 +145,11 @@ const SliderMain = (props) => {
           swipeToSlide={false}
           draggable={false}
           adaptiveHeight={true}
-          // focusOnSelect={true}
           className='firstsection'>
           {banner && banner.length > 0 ? (
-            banner.map((item, el) =>
-              item.ask ? (
-                <Ask item={item.ask} key={el} />
-              ) : (
-                {
-                  /* <h2>Data is Loading...</h2> */
-                }
-              )
-            )
+            banner.map((item, el) => (item.ask ? <Ask item={item.ask} key={el + "ask"} /> : null))
           ) : (
-            <h2>Loading...</h2>
+            <div></div>
           )}
         </Slider>
 
@@ -158,21 +161,15 @@ const SliderMain = (props) => {
           slidesToShow={1}
           swipeToSlide={false}
           draggable={false}
-          adaptiveHeight={true}
-          // focusOnSelect={true}
-        >
+          adaptiveHeight={true}>
           {banner && banner.length > 0 ? (
             banner.map((item, index) =>
               item.sucess_story.length > 0 ? (
-                <Sucess_story item={item.sucess_story} key={index} />
-              ) : (
-                {
-                  /* <h2>Data is Loading...</h2> */
-                }
-              )
+                <Sucess_story item={item.sucess_story} key={index + "sucess_story"} />
+              ) : null
             )
           ) : (
-            <h3>Loading....</h3>
+            <div></div>
           )}
         </Slider>
 
@@ -184,21 +181,11 @@ const SliderMain = (props) => {
           slidesToShow={1}
           swipeToSlide={false}
           draggable={false}
-          adaptiveHeight={true}
-          // focusOnSelect={true}
-        >
+          adaptiveHeight={true}>
           {banner && banner.length > 0 ? (
-            banner.map((item, index) =>
-              item.cta ? (
-                <Cta_button item={item.cta} />
-              ) : (
-                {
-                  /* <h2>Data is Loading...</h2> */
-                }
-              )
-            )
+            banner.map((item, index) => (item.cta ? <Cta_button item={item.cta} key={index + "cta"} /> : null))
           ) : (
-            <h3>Loading....</h3>
+            <div></div>
           )}
         </Slider>
         {/* Here we have added thinklabs as item bcz in thinksLabthere is two componats are mixed  */}
@@ -210,25 +197,22 @@ const SliderMain = (props) => {
           slidesToShow={1}
           swipeToSlide={false}
           adaptiveHeight={true}
-          draggable={false}
-          // focusOnSelect={true}
-        >
+          draggable={false}>
           {banner && banner.length > 0 ? (
             banner.map((item, index) =>
-              item.thinklabs.length > 0 ? (
-                <ThinksLab item={item} key={index} />
-              ) : (
-                {
-                  /* <h2>Data is Loading...</h2> */
-                }
-              )
+              item.thinklabs.length > 0 ? <ThinksLab item={item} key={index + "thinklabs"} /> : null
             )
           ) : (
-            <h3>Loading....</h3>
+            <div></div>
           )}
         </Slider>
-        {staticData ? <LogoWrap staticData={staticData} /> : <h3>Loading....</h3>}
-        {staticData ? <GetInTOuch staticData={staticData} /> : <h3>Loading....</h3>}
+        {staticData ? <LogoWrap staticData={staticData.high_profile} /> : <div></div>}
+        {staticData ? <GetInTOuch staticData={staticData.call_to_action} /> : <div></div>}
+        {staticData ? (
+          <FixedNav changeSlideOnCLick={ChangeSlider} ActiveDot={ActiveDot} staticData={stickyData} />
+        ) : (
+          <div></div>
+        )}
       </div>
     </>
   );
