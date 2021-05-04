@@ -5,7 +5,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import { Link } from "react-router-dom";
 
-export default function SimpleAccordion({ menuData }) {
+export default function SimpleAccordion({ menuData, CloseMenu }) {
   return (
     <div>
       <ul className='nav-menu'>
@@ -33,7 +33,11 @@ export default function SimpleAccordion({ menuData }) {
                   {menuItem.children.map((submenuItem, index) => {
                     if (!index == 0) {
                       return (
-                        <li className='menu-item' key={index + "submenuItem"} key={index + "menu"}>
+                        <li
+                          className='menu-item'
+                          key={index + "submenuItem"}
+                          onClick={() => CloseMenu()}
+                          key={index + "menu"}>
                           <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
                         </li>
                       );

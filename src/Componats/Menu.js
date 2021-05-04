@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles.css";
 import { Link } from "react-router-dom";
-import Acc from "./acc";
+import MobSubmenu from "./MobSubmenu";
 export default function Menu() {
   const HeighRef = useRef(null);
   const [MobHeight, setMobHeight] = useState(0);
@@ -51,8 +51,8 @@ export default function Menu() {
   };
 
   const CloseMenu = () => {
+    console.log("click");
     setOpen(false);
-
     setsubMEnuOpen(null);
     document.getElementsByTagName("body")[0].classList.remove("menu-is-opened");
   };
@@ -127,16 +127,7 @@ export default function Menu() {
 
                                 <span className='submenuToggle' onClick={() => submenuToggle(index)}></span>
 
-                                <ul
-                                  className='sub-menu'
-                                  ref={HeighRef}
-                                  style={
-                                    isMobile
-                                      ? isToggleActive
-                                        ? { height: isMobile ? MobHeight : "auto", visibility: "visible" }
-                                        : { height: "0", visibility: "hidden" }
-                                      : { height: "auto" }
-                                  }>
+                                <ul className='sub-menu' ref={HeighRef}>
                                   {menuItem.children.map((submenuItem, index) => {
                                     if (!index == 0) {
                                       return (
@@ -161,7 +152,7 @@ export default function Menu() {
                             )
                           )
                         ) : (
-                          <Acc menuData={menuData} />
+                          <MobSubmenu menuData={menuData} CloseMenu={OpenMenu} />
                         )
                       ) : (
                         <h2>Loading</h2>
