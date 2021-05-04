@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles.css";
 import { Link } from "react-router-dom";
+import Acc from "./acc";
 export default function Menu() {
   const HeighRef = useRef(null);
-  const [MobHeight, setMobHeight] = useState(true);
+  const [MobHeight, setMobHeight] = useState(0);
   const [isOpen, setOpen] = useState(true);
-  const [isMobileActive, setMobileActive] = useState(true);
+  const [isToggleActive, setToggleActive] = useState(true);
   const [subMenuOpen, setsubMEnuOpen] = useState(null);
   const [menuData, setMenuData] = useState();
+  const [isMobile, setMobile] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
     fetch("https://staging.project-progress.net/projects/equantiis/wp-json/industry-expertise/lp")
@@ -18,9 +20,7 @@ export default function Menu() {
         setMenuData(data.header);
       });
     function handleResize() {
-      console.log("resize", document.getElementsByClassName("sub-menu")[0].clientHeight);
       setWidth(window.innerWidth);
-      window.addEventListener("resize", handleResize);
     }
     window.addEventListener("resize", handleResize);
     document.getElementsByClassName("sub-menu")[0]
@@ -33,25 +33,41 @@ export default function Menu() {
   }, [document.getElementsByClassName("sub-menu")[0]]);
 
   useEffect(() => {
-    width < 767 && MobHeight > 50 ? setMobileActive(false) : null;
+    if (width < 767 && MobHeight > 50) {
+      setToggleActive(false);
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
   }, [MobHeight, width]);
   const OpenMenu = () => {
     setOpen(!isOpen);
-    isOpen == false ? setsubMEnuOpen(null) : null;
+    isOpen
+      ? document.getElementsByTagName("body")[0].classList.add("menu-is-opened")
+      : document.getElementsByTagName("body")[0].classList.remove("menu-is-opened");
+    if (isOpen == false) {
+      setsubMEnuOpen(null);
+    }
   };
+
   const CloseMenu = () => {
-    setOpen(!isOpen);
+    setOpen(false);
+
+    setsubMEnuOpen(null);
+    document.getElementsByTagName("body")[0].classList.remove("menu-is-opened");
   };
   const submenuToggle = (i) => {
-    // console.log(width, isOpen, i);
-    width > 767 ? setsubMEnuOpen(i) : mobileToggle();
+    width > 767 ? ToggleSubmenu(i) : mobileToggle(i);
   };
-  const mobileToggle = () => {
-    console.log(HeighRef.current.offsetHeight, "offset");
-    setMobileActive(!isMobileActive);
-    isMobileActive && document.getElementById("menu-item").classList.contains("submenuOpened")
+  const ToggleSubmenu = (i) => {
+    i === subMenuOpen ? setsubMEnuOpen(null) : setsubMEnuOpen(i);
+  };
+  const mobileToggle = (i) => {
+    // console.log(HeighRef.current.offsetHeight, "offset");
+    setToggleActive(!isToggleActive);
+    isToggleActive && document.getElementById("menu-item").classList.contains("submenuOpened")
       ? setsubMEnuOpen(null)
-      : setsubMEnuOpen("firstSubMenu");
+      : setsubMEnuOpen(i);
   };
 
   return (
@@ -86,7 +102,7 @@ export default function Menu() {
                 <div className='nav-logo'>
                   {menuData ? (
                     <figure>
-                      <img src={menuData.nav_logo} />{" "}
+                      <img src={menuData.nav_logo} />
                     </figure>
                   ) : null}
                 </div>
@@ -94,52 +110,58 @@ export default function Menu() {
                   <div className='menu-main-menu-container'>
                     <ul className='nav-menu'>
                       {menuData ? (
-                        menuData.menu.map((menuItem, index) =>
-                          menuItem.children.length == 0 ? (
-                            <li className='menu-item' key={index + "menu"}>
-                              <a href={menuItem.url}>{menuItem.title}</a>
-                            </li>
-                          ) : (
-                            <li
-                              className={`menu-item menu-item-has-children ${
-                                subMenuOpen === "firstSubMenu" ? "submenuOpened" : ""
-                              }`}
-                              key={index + "menu"}
-                              id='menu-item'>
-                              <a href={menuItem.url}>{menuItem.title}</a>
+                        !isMobile ? (
+                          menuData.menu.map((menuItem, index) =>
+                            menuItem.children.length == 0 ? (
+                              <li className='menu-item' key={index + "menu"}>
+                                <a href={menuItem.url}>{menuItem.title}</a>
+                              </li>
+                            ) : (
+                              <li
+                                className={`menu-item menu-item-has-children ${
+                                  subMenuOpen === index ? "submenuOpened" : ""
+                                }`}
+                                key={index + "menu"}
+                                id='menu-item'>
+                                <a href={menuItem.url}>{menuItem.title}</a>
 
-                              <span className='submenuToggle' onClick={() => submenuToggle("firstSubMenu")}></span>
+                                <span className='submenuToggle' onClick={() => submenuToggle(index)}></span>
 
-                              <ul
-                                className='sub-menu'
-                                ref={HeighRef}
-                                style={
-                                  isMobileActive
-                                    ? { height: MobHeight ? MobHeight : "auto", visibility: "visible" }
-                                    : { height: "0", visibility: "hidden" }
-                                }>
-                                {menuItem.children.map((submenuItem, index) => {
-                                  if (!index == 0) {
-                                    return (
-                                      <li
-                                        className='menu-item'
-                                        key={index + "submenuItem"}
-                                        onClick={() => CloseMenu()}
-                                        key={index + "menu"}>
-                                        <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
-                                      </li>
-                                    );
-                                  } else {
-                                    return (
-                                      <li
-                                        dangerouslySetInnerHTML={{ __html: submenuItem.title }}
-                                        key={index + "menu"}></li>
-                                    );
-                                  }
-                                })}
-                              </ul>
-                            </li>
+                                <ul
+                                  className='sub-menu'
+                                  ref={HeighRef}
+                                  style={
+                                    isMobile
+                                      ? isToggleActive
+                                        ? { height: isMobile ? MobHeight : "auto", visibility: "visible" }
+                                        : { height: "0", visibility: "hidden" }
+                                      : { height: "auto" }
+                                  }>
+                                  {menuItem.children.map((submenuItem, index) => {
+                                    if (!index == 0) {
+                                      return (
+                                        <li
+                                          className='menu-item'
+                                          key={index + "submenuItem"}
+                                          onClick={() => CloseMenu()}
+                                          key={index + "menu"}>
+                                          <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
+                                        </li>
+                                      );
+                                    } else {
+                                      return (
+                                        <li
+                                          dangerouslySetInnerHTML={{ __html: submenuItem.title }}
+                                          key={index + "menu"}></li>
+                                      );
+                                    }
+                                  })}
+                                </ul>
+                              </li>
+                            )
                           )
+                        ) : (
+                          <Acc menuData={menuData} />
                         )
                       ) : (
                         <h2>Loading</h2>
@@ -155,4 +177,3 @@ export default function Menu() {
     </>
   );
 }
-// style={isMobileActive > 1 ? { height: isMobileActive } : { height: "0" }}

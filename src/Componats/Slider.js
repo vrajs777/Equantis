@@ -11,7 +11,6 @@ import Ask from "./Ask";
 import Sucess_story from "./Sucess_story";
 import Cta_button from "./Cta_button";
 import ThinksLab from "./ThinksLab";
-
 import GetInTOuch from "./GetInTOuch";
 import LogoWrap from "./LogoWrap";
 import FixedNav from "./FixedNav";
@@ -55,12 +54,12 @@ const SliderMain = (props) => {
       .then((data) => {
         let newData = data.body.content_dynamic;
         let staticDatas = data.body.content_static;
-        console.log(newData);
+
         setNewData(newData);
         Object.keys(newData).forEach(function (key, index) {
           if (key == props.location.hash.split("#")[1]) {
             var value = newData[key];
-            console.log(value);
+
             for (const k in value) {
               if (k !== "sticky") {
                 setBanner((oldFiles) => [...oldFiles, value[k]]);
@@ -87,6 +86,7 @@ const SliderMain = (props) => {
     dots: false,
     arrows: false,
     lazyLoad: false,
+    swipe: false,
     adaptiveHeight: true,
     autoplaySpeed: 30000,
     initialSlide: 0,
