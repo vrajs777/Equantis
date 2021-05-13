@@ -6,9 +6,9 @@ Package.json
 
 Index.js
 
-<BrowserRouter>
+```<BrowserRouter>
 <App />
-</BrowserRouter>
+</BrowserRouter>```
 
 
 <b>Live settings<b>
@@ -18,6 +18,6 @@ Package.json
 
 Index.js
 
-<BrowserRouter basename='industry-expertise'>
+```<BrowserRouter basename='industry-expertise'>
 <App />
-</BrowserRouter>,
+</BrowserRouter>,```
