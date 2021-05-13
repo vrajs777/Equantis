@@ -1,10 +1,23 @@
+these are Settings Which we need to change for switch staging to live
 
-For stagging you have to add homepage as a "." and for the live server of client you need to add this "homepage": "https://beta.equantiis.com/industry-expertise" 
-same as wall for this BrowserRouter also if we have to push on client server then 
-<!-- <BrowserRouter basename='industry-expertise'>
-    <App />
-  </BrowserRouter>, -->
-  else 
-  <!-- <BrowserRouter>
-    <App />
-  </BrowserRouter>, -->
+<b>staging settings<b>
+Package.json
+"homepage": "." 
+
+Index.js
+
+<BrowserRouter>
+<App />
+</BrowserRouter>
+
+
+<b>Live settings<b>
+
+Package.json
+"homepage": "https://beta.equantiis.com/industry-expertise" 
+
+Index.js
+
+<BrowserRouter basename='industry-expertise'>
+<App />
+</BrowserRouter>,
