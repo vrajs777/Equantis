@@ -6,7 +6,7 @@ Package.json
 
 Index.js
 
-```<BrowserRouter>
+```HTML<BrowserRouter>
 <App />
 </BrowserRouter>```
 
@@ -18,6 +18,6 @@ Package.json
 
 Index.js
 
-```<BrowserRouter basename='industry-expertise'>
+```HTML<BrowserRouter basename='industry-expertise'>
 <App />
 </BrowserRouter>,```
