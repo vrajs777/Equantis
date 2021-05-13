@@ -1,8 +1,8 @@
 Options -MultiViews
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteBase /projects/equantiis/industry-expertise/
+RewriteBase /industry-expertise/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /projects/equantiis/industry-expertise/index.html [L]
+RewriteRule . /industry-expertise/index.html [L]

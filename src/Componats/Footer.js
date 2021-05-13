@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import ApiLink from "./ApiLink";
 export default function Footer() {
   const [footer, setFooter] = useState();
   useEffect(() => {
-    fetch("https://staging.project-progress.net/projects/equantiis/wp-json/industry-expertise/lp")
+    fetch(ApiLink)
       .then((response) => {
         return response.json();
       })

@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "../styles.css";
 import { Link } from "react-router-dom";
 import MobSubmenu from "./MobSubmenu";
+import ApiLink from "./ApiLink";
 export default function Menu() {
   const HeighRef = useRef(null);
-  const [MobHeight, setMobHeight] = useState(0);
   const [isOpen, setOpen] = useState(true);
   const [isToggleActive, setToggleActive] = useState(true);
   const [subMenuOpen, setsubMEnuOpen] = useState(null);
@@ -12,7 +12,7 @@ export default function Menu() {
   const [isMobile, setMobile] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
-    fetch("https://staging.project-progress.net/projects/equantiis/wp-json/industry-expertise/lp")
+    fetch(ApiLink)
       .then((response) => {
         return response.json();
       })
@@ -23,23 +23,18 @@ export default function Menu() {
       setWidth(window.innerWidth);
     }
     window.addEventListener("resize", handleResize);
-    document.getElementsByClassName("sub-menu")[0]
-      ? document.getElementsByClassName("sub-menu")[0].clientHeight > 1
-        ? setMobHeight(document.getElementsByClassName("sub-menu")[0].clientHeight)
-        : null
-      : 0;
 
     return () => window.removeEventListener("resize", handleResize);
-  }, [document.getElementsByClassName("sub-menu")[0]]);
+  }, []);
 
   useEffect(() => {
-    if (width < 767 && MobHeight > 50) {
+    if (width < 767) {
       setToggleActive(false);
       setMobile(true);
     } else {
       setMobile(false);
     }
-  }, [MobHeight, width]);
+  }, [width]);
   const OpenMenu = () => {
     setOpen(!isOpen);
     isOpen
@@ -51,8 +46,7 @@ export default function Menu() {
   };
 
   const CloseMenu = () => {
-    console.log("click");
-    setOpen(false);
+    setOpen(!isOpen);
     setsubMEnuOpen(null);
     document.getElementsByTagName("body")[0].classList.remove("menu-is-opened");
   };
@@ -136,7 +130,13 @@ export default function Menu() {
                                           key={index + "submenuItem"}
                                           onClick={() => CloseMenu()}
                                           key={index + "menu"}>
-                                          <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
+                                          {submenuItem.title && submenuItem.url.split("#")[1] ? (
+                                            <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
+                                          ) : submenuItem.title ? (
+                                            <a href={submenuItem.url}>{submenuItem.title}</a>
+                                          ) : (
+                                            <a></a>
+                                          )}
                                         </li>
                                       );
                                     } else {

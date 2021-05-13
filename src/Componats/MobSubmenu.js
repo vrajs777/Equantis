@@ -38,7 +38,13 @@ export default function SimpleAccordion({ menuData, CloseMenu }) {
                           key={index + "submenuItem"}
                           onClick={() => CloseMenu()}
                           key={index + "menu"}>
-                          <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
+                          {submenuItem.title && submenuItem.url.split("#")[1] ? (
+                            <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
+                          ) : submenuItem.title ? (
+                            <a href={submenuItem.url}>{submenuItem.title}</a>
+                          ) : (
+                            <a></a>
+                          )}
                         </li>
                       );
                     } else {
@@ -53,51 +59,6 @@ export default function SimpleAccordion({ menuData, CloseMenu }) {
           <div></div>
         )}
       </ul>
-      {/*  (
-                            <li
-                              className={`menu-item menu-item-has-children ${
-                                subMenuOpen === index ? "submenuOpened" : ""
-                              }`}
-                              key={index + "menu"}
-                              id='menu-item'>
-                              <a href={menuItem.url}>{menuItem.title}</a>
-
-                              <span className='submenuToggle' onClick={() => submenuToggle(index)}></span>
-
-                              <ul
-                                className='sub-menu'
-                                ref={HeighRef}
-                                style={
-                                  isMobile
-                                    ? isToggleActive
-                                      ? { height: isMobile ? MobHeight : "auto", visibility: "visible" }
-                                      : { height: "0", visibility: "hidden" }
-                                    : { height: "auto" }
-                                }>
-                                {menuItem.children.map((submenuItem, index) => {
-                                  if (!index == 0) {
-                                    return (
-                                      <li
-                                        className='menu-item'
-                                        key={index + "submenuItem"}
-                                        onClick={() => CloseMenu()}
-                                        key={index + "menu"}>
-                                        <Link to={`#${submenuItem.url.split("#")[1]}`}>{submenuItem.title}</Link>
-                                      </li>
-                                    );
-                                  } else {
-                                    return (
-                                      <li
-                                        dangerouslySetInnerHTML={{ __html: submenuItem.title }}
-                                        key={index + "menu"}></li>
-                                    );
-                                  }
-                                })}
-                              </ul>
-                            </li>
-                          ) : (
-                            <Acc />
-                          ) */}
     </div>
   );
 }

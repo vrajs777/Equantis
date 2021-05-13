@@ -14,6 +14,7 @@ import ThinksLab from "./ThinksLab";
 import GetInTOuch from "./GetInTOuch";
 import LogoWrap from "./LogoWrap";
 import FixedNav from "./FixedNav";
+import ApiLink from "./ApiLink";
 const SliderMain = (props) => {
   const [nav1, setNav1] = useState(null);
   const [ActiveDot, setActiveDot] = useState(null);
@@ -35,6 +36,7 @@ const SliderMain = (props) => {
   const myRef = useRef(null);
   const ChangeSlider = (event, i) => {
     slider1.current.slickGoTo(i);
+    //  window.scrollTo({ behavior: "smooth", top: 0 });
   };
   useEffect(() => {
     setLoading(true);
@@ -47,7 +49,7 @@ const SliderMain = (props) => {
     setNav4(slider4.current);
     setNav5(slider5.current);
     window.scrollTo({ behavior: "smooth", top: 0 });
-    fetch("https://staging.project-progress.net/projects/equantiis/wp-json/industry-expertise/lp")
+    fetch(ApiLink)
       .then((response) => {
         return response.json();
       })
@@ -144,6 +146,7 @@ const SliderMain = (props) => {
           slidesToShow={1}
           swipeToSlide={false}
           draggable={false}
+          swipe={false}
           adaptiveHeight={true}
           className='firstsection'>
           {banner && banner.length > 0 ? (
@@ -158,6 +161,7 @@ const SliderMain = (props) => {
           arrows={false}
           asNavFor={nav4}
           ref={slider3}
+          swipe={false}
           slidesToShow={1}
           swipeToSlide={false}
           draggable={false}
@@ -178,6 +182,7 @@ const SliderMain = (props) => {
           arrows={false}
           asNavFor={nav5}
           ref={slider4}
+          swipe={false}
           slidesToShow={1}
           swipeToSlide={false}
           draggable={false}
@@ -194,6 +199,7 @@ const SliderMain = (props) => {
           arrows={false}
           asNavFor={nav1}
           ref={slider5}
+          swipe={false}
           slidesToShow={1}
           swipeToSlide={false}
           adaptiveHeight={true}

@@ -13,15 +13,21 @@ export default function ctaButton({ item }) {
                   {item.small_heading ? <span>{item.small_heading}</span> : null}
                   {item.heading ? <h2>{item.heading}</h2> : null}
                   <div className='btn-blk'>
-                    <a href={item.button.url} className='cta-btn'>
-                      {item.button.title ? item.button.title : null}
-                    </a>
+                    {item.button.url ? (
+                      <a href={item.button.url} className='cta-btn'>
+                        {item.button.title ? item.button.title : null}
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </div>
               <div className='img-blk col-md-6'>
                 <div className='inner-img-blk' style={{ background: `url(${NiicoBg})` }}>
-                  <figure>{item.image ? <img src={item.image} alt='Niico' /> : null}</figure>
+                  {item.image ? (
+                    <figure>
+                      <img src={item.image} alt='Niico' />
+                    </figure>
+                  ) : null}
                 </div>
               </div>
             </div>

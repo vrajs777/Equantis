@@ -1,7 +1,5 @@
 import React from "react";
-import storyimg from "../assets/img/circle-img.png";
-import ManchesterLogo from "../assets/img/manchester.svg";
-import EastLondon from "../assets/img/east-london.svg";
+
 import { ReactComponent as Pattern2 } from "../assets/img/pattern2.svg";
 export default function Sucess_story({ item }) {
   return (
@@ -14,7 +12,11 @@ export default function Sucess_story({ item }) {
                 <div className='row'>
                   <div className='content-blk col-md-6'>
                     <div className='inner-content-blk'>
-                      <span className='education-row'>Higher Education Success Story</span>
+                      {item[0] ? (
+                        <span className='education-row'>{item[0].cateogry}</span>
+                      ) : (
+                        <span className='education-row'>Higher Education Success Story</span>
+                      )}
 
                       {item[0].title ? <h3>{item[0].title}</h3> : null}
                       {item[0].description ? <p>{item[0].description}</p> : null}
@@ -33,14 +35,18 @@ export default function Sucess_story({ item }) {
                   <div className='img-blk col-md-6'>
                     <div className='inner-img-blk'>
                       <div className='main-img'>
-                        <figure>
-                          <img src={storyimg} alt='Story Image' />
-                        </figure>
+                        {item[0].featured_image ? (
+                          <figure>
+                            <img src={item[0].featured_image.url} alt='Story Image' />
+                          </figure>
+                        ) : null}
                       </div>
                       <div className='logo-img'>
-                        <figure>
-                          <img src={ManchesterLogo} alt='manchester' />
-                        </figure>
+                        {item[0].image ? (
+                          <figure>
+                            <img src={item[0].image} alt='manchester' />
+                          </figure>
+                        ) : null}
                       </div>
                     </div>
                   </div>
@@ -59,7 +65,11 @@ export default function Sucess_story({ item }) {
                   <div className='inner-single-story'>
                     <div className='content-blk'>
                       <div className='inner-content-blk'>
-                        <span className='education-row'>Higher Education Success Story</span>
+                        {item[1] ? (
+                          <span className='education-row'>{item[1].cateogry}</span>
+                        ) : (
+                          <span className='education-row'>Higher Education Success Story</span>
+                        )}
                         {item[1].title ? <h4>{item[1].title}</h4> : null}
                         <div className='arrow-btn'>
                           {item[1].link ? (
@@ -74,9 +84,11 @@ export default function Sucess_story({ item }) {
                       </div>
                     </div>
                     <div className='logo-blk'>
-                      <figure>
-                        <img src={ManchesterLogo} alt='manchester' />
-                      </figure>
+                      {item[1].image ? (
+                        <figure>
+                          <img src={item[1].image} alt='manchester' />
+                        </figure>
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -86,7 +98,11 @@ export default function Sucess_story({ item }) {
                   <div className='inner-single-story'>
                     <div className='content-blk'>
                       <div className='inner-content-blk'>
-                        <span className='education-row'>Higher Education Success Story</span>
+                        {item[2] ? (
+                          <span className='education-row'>{item[2].cateogry}</span>
+                        ) : (
+                          <span className='education-row'>Higher Education Success Story</span>
+                        )}
                         {item[2].title ? <h4>{item[2].title}</h4> : null}
                         {item[2].link ? (
                           <div className='arrow-btn'>
@@ -101,9 +117,11 @@ export default function Sucess_story({ item }) {
                       </div>
                     </div>
                     <div className='logo-blk'>
-                      <figure>
-                        <img src={EastLondon} alt='manchester' />
-                      </figure>
+                      {item[2].image ? (
+                        <figure>
+                          <img src={item[2].image} alt='manchester' />
+                        </figure>
+                      ) : null}
                     </div>
                   </div>
                 </div>

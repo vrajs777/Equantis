@@ -5,11 +5,11 @@ import { ReactComponent as Pattern1 } from "../assets/img/pattern1.svg";
 export default function Banner({ item, myRef, changeSliders, currentDotIndex, dots }) {
   const executeScroll = () => window.scrollTo({ behavior: "smooth", top: myRef.current.offsetTop });
   return (
-    <div style={{ background: `${item.bg_color}` }}>
+    <div style={item.bg_colo ? { background: `${item.bg_color}` } : { background: `#36ff9c` }}>
       <div className='banner-section'>
         <div className='TwoCircleImg'>
           <figure>
-            <img src={GreenBannerCircle} alt='' />
+            <img src={GreenBannerCircle} alt='GreenBannerCircle' />
           </figure>
         </div>
         <div className='container'>

@@ -8,10 +8,10 @@ export default function ThinksLab({ item }) {
         <div className='section-title'>
           <div className='dot-img desktop'>
             <figure>
-              <img src={exploredottimg} />
+              <img src={exploredottimg} alt='dots' />
             </figure>
           </div>
-          <h2>Our latest Thinklab Higher Education insight…</h2>
+          {item.heading ? <h2>{item.heading}</h2> : null}
         </div>
         {item.thinklabs.map((thinklab, index) => (
           <div className='blog-blk' key={index + "ThinksLab"}>
@@ -19,8 +19,17 @@ export default function ThinksLab({ item }) {
               <div className='inner-single-blog'>
                 <div className='blog-img'>
                   <div className='inner-blog-img'>
-                    <figure>{thinklab.image ? <img src={thinklab.image} alt='Blog Image' /> : null}</figure>
-                    <span className='blog-cat'>Thought Piece</span>
+                    {thinklab.image ? (
+                      <figure>
+                        <img src={thinklab.image} alt='Blog Image' />
+                      </figure>
+                    ) : null}
+
+                    {thinklab.cateogry.length > 0 ? (
+                      <span className='blog-cat'>{thinklab.cateogry}</span>
+                    ) : (
+                      <span className='blog-cat'>Thought Piece</span>
+                    )}
                   </div>
                 </div>
 
@@ -48,11 +57,13 @@ export default function ThinksLab({ item }) {
           </div>
         ))}
 
-        <div className='more-thinkable btn-blk yellow-bg text-center'>
-          <a href={item.button.url} className='cta-btn '>
-            {item.button.title ? item.button.title : null}
-          </a>
-        </div>
+        {item.button.url ? (
+          <div className='more-thinkable btn-blk yellow-bg text-center'>
+            <a href={item.button.url} className='cta-btn '>
+              {item.button.title ? item.button.title : null}
+            </a>
+          </div>
+        ) : null}
       </div>
       <div className='pattern-img desktop'>
         <figure>
