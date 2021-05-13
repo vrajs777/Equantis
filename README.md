@@ -1,23 +1,24 @@
-these are Settings Which we need to change for switch staging to live
+# These are Settings Which we need to change for switch staging to live
 
-<b>staging settings<b>
+###### **Staging settings**
+
 Package.json
-"homepage": "." 
+`"homepage": "."`
 
 Index.js
 
-```HTML<BrowserRouter>
+`<BrowserRouter>
 <App />
-</BrowserRouter>```
+</BrowserRouter>`
 
 
-<b>Live settings<b>
+###### **Live settings**
 
 Package.json
-"homepage": "https://beta.equantiis.com/industry-expertise" 
+`"homepage": "https://beta.equantiis.com/industry-expertise" `
 
 Index.js
 
-```HTML<BrowserRouter basename='industry-expertise'>
+`<BrowserRouter basename='industry-expertise'>
 <App />
-</BrowserRouter>,```
+</BrowserRouter>,`
