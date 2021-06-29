@@ -1,6 +1,6 @@
 these are Settings Which we need to change for switch staging to live
 
-<b>staging settings<b>
+<b>staging settings<b><br/>
 Package.json
 "homepage": "." 
 

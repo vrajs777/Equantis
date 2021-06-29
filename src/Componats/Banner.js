@@ -26,6 +26,9 @@ export default function Banner({ item, myRef, changeSliders, currentDotIndex, do
                     ) : null}
                   </div>
                   <ul className='slick-dots'>
+                    <li className='sliderarrow prev' onClick={() => changeSliders(currentDotIndex - 1)}>
+                      <i className='fas fa-arrow-left'></i>
+                    </li>
                     {dots &&
                       !!dots.length &&
                       dots.map((obj, dotIndex) => {
@@ -33,11 +36,14 @@ export default function Banner({ item, myRef, changeSliders, currentDotIndex, do
                           <li
                             key={dotIndex}
                             className={currentDotIndex === dotIndex ? `slick-active` : ``}
-                            onClick={() => changeSliders(dotIndex + 1)}>
+                            onClick={() => changeSliders(dotIndex)}>
                             <button>{dotIndex + 1}</button>
                           </li>
                         );
                       })}
+                    <li className='sliderarrow next' onClick={() => changeSliders(currentDotIndex + 1)}>
+                      <i className='fas fa-arrow-right'></i>
+                    </li>
                   </ul>
                 </div>
               </div>

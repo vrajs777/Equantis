@@ -35,8 +35,9 @@ const SliderMain = (props) => {
   const slider5 = useRef(null);
   const myRef = useRef(null);
   const ChangeSlider = (event, i) => {
+    console.log(i, "change slider function");
     slider1.current.slickGoTo(i);
-    //  window.scrollTo({ behavior: "smooth", top: 0 });
+    window.scrollTo({ behavior: "smooth", top: 0 });
   };
   useEffect(() => {
     setLoading(true);
@@ -110,7 +111,7 @@ const SliderMain = (props) => {
               item ? (
                 <Banner
                   changeSliders={(value) => {
-                    slider1.current.slickGoTo(value - 1);
+                    slider1.current.slickGoTo(value);
                   }}
                   dots={banner}
                   item={item.banner}
